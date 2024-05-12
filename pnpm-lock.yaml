@@ -50,6 +50,9 @@ dependencies:
   firebase-admin:
     specifier: ^12.1.0
     version: 12.1.0
+  jose:
+    specifier: ^5.3.0
+    version: 5.3.0
   kafkajs:
     specifier: ^2.2.4
     version: 2.2.4
@@ -1656,6 +1659,10 @@ packages:
 
   /jose@4.15.5:
     resolution: {integrity: sha512-jc7BFxgKPKi94uOvEmzlSWFFe2+vASyXaKUpdQKatWAESU2MWjDfFf0fdfc83CDKcA5QecabZeNLyfhe3yKNkg==}
+    dev: false
+
+  /jose@5.3.0:
+    resolution: {integrity: sha512-IChe9AtAE79ru084ow8jzkN2lNrG3Ntfiv65Cvj9uOCE2m5LNsdHG+9EbxWxAoWRF9TgDOqLN5jm08++owDVRg==}
     dev: false
 
   /joycon@3.1.1:

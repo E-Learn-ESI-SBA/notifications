@@ -1,3 +1,6 @@
+import { JWTPayload } from 'jose';
+import { z } from 'zod';
+
 // Env Var Schema
 export const ConfigSchema = {
 	type: 'object',
@@ -27,3 +30,34 @@ export const ConfigSchema = {
 		},
 	},
 };
+
+export interface UserClaims extends JWTPayload {
+	/*
+	 "avatar": "https://www.google.com",
+  "email": "ameri.mohamedayoub@gmail.com",
+  "exp": 1715572535,
+  "id": "12",
+  "role": "admin",
+  "username": "ayoub"
+}
+	*/
+	avatar: string;
+	email: string;
+	exp: number;
+	id: string;
+	role: string;
+	username: string;
+	group: string;
+	year: string;
+}
+
+export const UserClaimValidator = z.object({
+	avatar: z.string(),
+	email: z.string(),
+	exp: z.number(),
+	id: z.string(),
+	role: z.string(),
+	username: z.string(),
+	group: z.string(),
+	year: z.string(),
+});

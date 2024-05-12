@@ -1,6 +1,8 @@
 import 'fastify';
+
 import type * as firebase from 'firebase-admin';
 import { Consumer, Kafka, Producer } from 'kafkajs';
+import { UserClaims } from './config.ts';
 declare module 'fastify' {
 	interface FastifyInstance {
 		firebase: firebase.app;
@@ -15,5 +17,8 @@ declare module 'fastify' {
 			JWT_SECRET: string;
 			NODE_ENV: string;
 		};
+	}
+	interface FastifyRequest {
+		user: UserClaims;
 	}
 }
