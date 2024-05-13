@@ -31,10 +31,10 @@ const app: FastifyPluginAsync<AppOptions> = async (
     .register(fastifyEnv, {
       confKey: "config",
       schema: ConfigSchema,
-      dotenv: {
+      dotenv: process.env.NODE_ENV && process.env.NODE_ENV == "development" ? {
         path: envPath,
         debug: true,
-      },
+      }: undefined,
     })
     .after(() => {
       fastify.log.info(fastify.config);
