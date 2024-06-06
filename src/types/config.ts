@@ -60,4 +60,7 @@ export const UserClaimValidator = z.object({
   username: z.string(),
   group: z.string(),
   year: z.string(),
+  jti: z.string().optional(),
+    token_type: z.string().optional(),
+    iat: z.number().optional()
 });
