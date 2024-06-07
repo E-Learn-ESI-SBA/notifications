@@ -1,7 +1,7 @@
-FROM node:21.7.3-alpine3.20
+FROM node:lts-slim
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN yarn install
 COPY . .
 EXPOSE 3000
-CMD [ "npm", "run","start" ]
+CMD [ "yarn","start" ]
