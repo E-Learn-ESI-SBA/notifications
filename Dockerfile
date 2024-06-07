@@ -1,11 +1,9 @@
-FROM node
+FROM node:21.7.3-alpine3.20
 WORKDIR /app
 COPY package*.json ./
-RUN npm install -g npm@latest
-RUN npm install
-RUN groupadd -r nodejs && useradd -r -g nodejs nodejs
-RUN chown -R nodejs:nodejs /app
-USER nodejs
+COPY pnpm-lock.yaml app/
+RUN npm install -g pnpm
+RUN pnpm install
 COPY . .
 EXPOSE 3000
-CMD [ "npm", "run","dev" ]
+CMD [ "pnpm", "start" ]
