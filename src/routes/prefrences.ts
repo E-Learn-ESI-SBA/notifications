@@ -13,8 +13,6 @@ const preferences: FastifyPluginAsync = async (
 	fastify: FastifyInstance,
 	opts: FastifyPluginOptions
 ): Promise<void> => {
-	//const jwtKeys = new Set([fastify.config.JWT_SECRET]);
-
 	fastify.route({
 		method: 'GET',
 		url: '/',
@@ -39,12 +37,12 @@ const preferences: FastifyPluginAsync = async (
 		method: 'POST',
 		url: '/',
 		preHandler: AuthMiddleware(fastify),
-		schema: {
-			body: {
-				enableNotification: { type: 'boolean', required: true },
-				enableEmail: { type: 'boolean', required: true },
-			},
-		},
+		// schema: {
+		// 	body: {
+		// 		enableNotification: { type: 'boolean', required: true },
+		// 		enableEmail: { type: 'boolean', required: true },
+		// 	},
+		// },
 		handler: EditPreferences(fastify),
 		errorHandler: function (error, request, reply) {
 			request.log.error(error, 'a route error happened');
